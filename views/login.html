@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Login na sua Conta</title>
+    <link href="../style/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    
+    <form class="login" action="">
+        <div class="card">
+            <div class="card-top" >
+                <img class="imglogin" src="../img/user.png" alt="">
+                <h2 class="titulo">Painel de Controle</h2>
+                <p>Gerenciar seu Negócio</p>
+            </div>
+
+            <div class="cars-group">
+                <label class="email">Email</label>
+                <input id="seu-email" class="emailinput" type="email" name="email" placeholder="Digite seu Email" required>
+            </div>
+
+            <div class="cars-group">
+                <label class="password">Senha</label>
+                <input class="passwordinput" type="password" name="senha" placeholder="Digite sua Senha" required>
+            </div>
+
+            <div class="cars-group">
+                <label><input type="checkbox">Lembre-me</label>
+            </div>
+
+            <div class="btn">
+                <button class="acessar" onclick="acessar()" type="submit">ACESSAR</button>
+            </div>
+            <script src="../scripts/login.js"></script>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -2,6 +2,9 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
+var login = 'admin';
+var password = '123'
+
 const port = 3000;
 var path = require('path');
 const app = express();
@@ -16,12 +19,36 @@ app.set('views', path.join(__dirname, '/views'));
 
 
 app.post('/', (req, res) => {
+
+    if (req.body.password == password && req.body.login == login) {
+        //Logado com sucesso!
+        req.session.login = login;
+        
+        res.render('logado');
+        console.log(`O meu usuário logado é: ${req.session.login}`);
+    } else if (req.body.password == password && !req.body.login == login) {
+        res.render('index')
+        res.send('Nome incorreto!');
+    } else if (!req.body.password == password && req.body.login == login) {
+        res.render('index')
+        res.send('Senha incorreta!');
+    } else {
+        
+        res.render('index')
+    }
+
     console.log(req.body.login);
-    res.render('index');
+    
 })
 
 app.get('/', (req, res) => {
-    res.render('index');
+
+    if (req.session.login) {
+        res.render('logado')
+    } else {
+        res.render('index')
+    }
+
 })
 
 app.listen(port, () => {
